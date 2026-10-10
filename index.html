@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Cuánto conoces al cumpleañero(a)?</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts Aesthetic -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Elementos decorativos de fondo -->
+    <div class="floating-decor decor-1">🦫🌿</div>
+    <div class="floating-decor decor-2">✨</div>
+    <div class="floating-decor decor-3">🎉</div>
+    <div class="floating-decor decor-4">🦫</div>
+
+    <div class="main-container">
+        <!-- Pantalla 1: Configuración Inicial -->
+        <div id="setup-screen" class="card">
+            <h1>✨ ¿Cuánto conoces al cumpleañero(a)? ✨</h1>
+            <p class="subtitle">¡Prepara papel, lápiz y configuremos la trivia!</p>
+            
+            <div class="form-group">
+                <label for="name-input">Nombre del cumpleañero(a):</label>
+                <input type="text" id="name-input" value="Cumpleañero(a)">
+            </div>
+
+            <div class="form-group">
+                <label for="age-input">Años que cumple:</label>
+                <input type="number" id="age-input" value="8">
+            </div>
+
+            <div class="form-group">
+                <label for="time-input">Segundos por pregunta:</label>
+                <input type="number" id="time-input" value="30" min="10" max="120">
+            </div>
+
+            <div class="form-group">
+                <label>Nombres de los Invitados (Jugadores):</label>
+                <div id="guests-container">
+                    <div class="guest-row">
+                        <input type="text" class="guest-name" value="Mamá">
+                        <button type="button" class="btn-remove" onclick="removeGuest(this)">✕</button>
+                    </div>
+                    <div class="guest-row">
+                        <input type="text" class="guest-name" value="Papá">
+                        <button type="button" class="btn-remove" onclick="removeGuest(this)">✕</button>
+                    </div>
+                </div>
+                <button type="button" id="btn-add-guest" onclick="addGuest()">+ Añadir Invitado</button>
+            </div>
+
+            <button id="btn-start" onclick="startGame()">¡Comenzar la Diversión! 🚀</button>
+        </div>
+
+        <!-- Pantalla 2: Juego Activo -->
+        <div id="game-screen" class="card hidden">
+            <div class="game-header">
+                <span id="question-counter">Pregunta 1 / 25</span>
+                <div id="timer-box">⏳ <span id="timer">30</span>s</div>
+            </div>
+
+            <h2 id="question-text">Cargando pregunta...</h2>
+            <button id="btn-speak" onclick="speakCurrentQuestion()">🔊 Escuchar pregunta</button>
+
+            <div id="scoring-section" class="hidden">
+                <h3>¿Quiénes acertaron?</h3>
+                <p class="small-text">Marca a los participantes que tengan la respuesta correcta:</p>
+                <div id="score-checkboxes"></div>
+                <button id="btn-next" onclick="nextQuestion()">Siguiente Pregunta ➡️</button>
+            </div>
+        </div>
+
+        <!-- Pantalla 3: Podio Final -->
+        <div id="podium-screen" class="card hidden">
+            <h1>🏆 ¡Gran Final! 🏆</h1>
+            <p class="subtitle">¡Así quedó el ranking de quién conoce mejor a <span id="final-name"></span>!</p>
+            <div id="podium-list"></div>
+            <button onclick="location.reload()">🔄 Jugar de nuevo</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
