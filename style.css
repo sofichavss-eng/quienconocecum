@@ -1,0 +1,255 @@
+:root {
+    --bg-gradient: linear-gradient(135deg, #fefae0 0%, #faedcd 100%);
+    --card-bg: #ffffff;
+    --primary-color: #606c38;
+    --secondary-color: #dda15e;
+    --accent-color: #bc6c25;
+    --text-color: #386641;
+    --border-radius: 24px;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Elementos decorativos flotantes aesthetic */
+.floating-decor {
+    position: absolute;
+    font-size: 2.5rem;
+    opacity: 0.6;
+    animation: float 6s ease-in-out infinite;
+    z-index: 0;
+}
+.decor-1 { top: 10%; left: 8%; animation-delay: 0s; }
+.decor-2 { top: 20%; right: 10%; animation-delay: 1.5s; }
+.decor-3 { bottom: 15%; left: 10%; animation-delay: 3s; }
+.decor-4 { bottom: 10%; right: 8%; animation-delay: 4.5s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(5deg); }
+}
+
+.main-container {
+    width: 100%;
+    max-width: 620px;
+    z-index: 1;
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 35px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 15px 35px rgba(96, 108, 56, 0.12);
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    border: 2px solid rgba(221, 161, 94, 0.2);
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 1.9rem;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 1.05rem;
+    color: #8c7a6b;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #e9edc9;
+    border-radius: 14px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    box-sizing: border-box;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: #fcfcfc;
+    color: #333;
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+    border-color: var(--secondary-color);
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(221, 161, 94, 0.15);
+}
+
+.guest-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-remove {
+    background: #e76f51;
+    border: none;
+    color: white;
+    padding: 0 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+.btn-remove:hover {
+    background: #d90429;
+}
+
+#btn-add-guest {
+    background-color: #2a9d8f;
+    font-size: 0.95rem;
+    padding: 11px;
+    border-radius: 12px;
+}
+
+#btn-start, #btn-next, .card button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    font-family: 'Quicksand', sans-serif;
+    box-shadow: 0 6px 15px rgba(96, 108, 56, 0.2);
+}
+
+#btn-start:hover, #btn-next:hover, .card button:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(188, 108, 37, 0.25);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #8c7a6b;
+    margin-bottom: 20px;
+}
+
+#timer-box {
+    background: #faedcd;
+    color: #bc6c25;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 1.1rem;
+}
+
+#question-text {
+    font-size: 1.55rem;
+    color: #283618;
+    margin: 25px 0;
+    min-height: 90px;
+    line-height: 1.4;
+}
+
+#btn-speak {
+    background-color: #4ea8de;
+    margin-bottom: 25px;
+    box-shadow: 0 6px 15px rgba(78, 168, 222, 0.2);
+}
+#btn-speak:hover {
+    background-color: #3a86ff;
+}
+
+.small-text {
+    font-size: 0.9rem;
+    color: #8c7a6b;
+    margin-bottom: 15px;
+}
+
+#score-checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 220px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    text-align: left;
+    padding: 5px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.1rem;
+    background: #fdfcdc;
+    padding: 12px 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #4f5d2f;
+    border: 1px solid #e9edc9;
+    transition: background 0.2s;
+}
+.checkbox-label:hover {
+    background: #faedcd;
+}
+
+.checkbox-label input {
+    width: 22px;
+    height: 22px;
+    accent-color: var(--primary-color);
+    cursor: pointer;
+}
+
+#podium-list {
+    text-align: left;
+    margin: 25px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.podium-item {
+    background: #fefae0;
+    padding: 16px 20px;
+    border-radius: 14px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    border: 1px solid #dda15e;
+}
